@@ -1,7 +1,7 @@
 # fake_image_picker
 
 [![pub package](https://img.shields.io/pub/v/fake_image_picker.svg)](https://pub.dev/packages/fake_image_picker)
-[![build](https://img.shields.io/github/actions/workflow/status/example/fake_image_picker/test.yml?branch=main)](https://github.com/example/fake_image_picker/actions)
+[![build](https://img.shields.io/github/actions/workflow/status/example/fake_image_picker/ci.yml?branch=main)](https://github.com/example/fake_image_picker/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/example/fake_image_picker/branch/main/graph/badge.svg)](https://codecov.io/gh/example/fake_image_picker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
