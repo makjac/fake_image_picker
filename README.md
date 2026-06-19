@@ -249,7 +249,7 @@ Simulate Android, iOS, macOS, Windows, Linux, Web, or a universal platform.
 flutter test
 ```
 
-The package ships with a comprehensive test suite. Example tests live in `example/test/`.
+The package ships with a comprehensive test suite. A runnable demo app with widget tests lives in `example/`.
 
 ---
 

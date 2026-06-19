@@ -3,6 +3,129 @@ import 'package:flutter/services.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('FakePlatformConstraints direct', () {
+    test('constructs with default values', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+
+      expect(constraints.supportedSources, {ImageSource.gallery});
+      expect(constraints.supportsLostData, isFalse);
+      expect(constraints.supportsCameraDelegate, isFalse);
+      expect(constraints.supportsMultipleSelection, isTrue);
+      expect(constraints.respectsLimit, isTrue);
+    });
+
+    test('constructs with explicit values', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.camera},
+        supportsLostData: true,
+        supportsCameraDelegate: true,
+        supportsMultipleSelection: false,
+        respectsLimit: false,
+      );
+
+      expect(constraints.supportedSources, {ImageSource.camera});
+      expect(constraints.supportsLostData, isTrue);
+      expect(constraints.supportsCameraDelegate, isTrue);
+      expect(constraints.supportsMultipleSelection, isFalse);
+      expect(constraints.respectsLimit, isFalse);
+    });
+
+    test('supportsImageSource returns false for unsupported source', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+
+      expect(constraints.supportsImageSource(ImageSource.gallery), isTrue);
+      expect(constraints.supportsImageSource(ImageSource.camera), isFalse);
+    });
+
+    test('copyWith replaces supportedSources', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+      final updated = constraints.copyWith(
+        supportedSources: {ImageSource.camera},
+      );
+
+      expect(updated.supportedSources, {ImageSource.camera});
+      expect(updated.supportsLostData, constraints.supportsLostData);
+      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(updated.respectsLimit, constraints.respectsLimit);
+    });
+
+    test('copyWith replaces supportsLostData', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+      final updated = constraints.copyWith(supportsLostData: true);
+
+      expect(updated.supportsLostData, isTrue);
+      expect(updated.supportedSources, constraints.supportedSources);
+      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(updated.respectsLimit, constraints.respectsLimit);
+    });
+
+    test('copyWith replaces supportsCameraDelegate', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+      final updated = constraints.copyWith(supportsCameraDelegate: true);
+
+      expect(updated.supportsCameraDelegate, isTrue);
+      expect(updated.supportedSources, constraints.supportedSources);
+      expect(updated.supportsLostData, constraints.supportsLostData);
+      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(updated.respectsLimit, constraints.respectsLimit);
+    });
+
+    test('copyWith replaces supportsMultipleSelection', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+      final updated = constraints.copyWith(supportsMultipleSelection: false);
+
+      expect(updated.supportsMultipleSelection, isFalse);
+      expect(updated.supportedSources, constraints.supportedSources);
+      expect(updated.supportsLostData, constraints.supportsLostData);
+      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(updated.respectsLimit, constraints.respectsLimit);
+    });
+
+    test('copyWith replaces respectsLimit', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.gallery},
+      );
+      final updated = constraints.copyWith(respectsLimit: false);
+
+      expect(updated.respectsLimit, isFalse);
+      expect(updated.supportedSources, constraints.supportedSources);
+      expect(updated.supportsLostData, constraints.supportsLostData);
+      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+    });
+
+    test('copyWith keeps values when no arguments provided', () {
+      const constraints = FakePlatformConstraints(
+        supportedSources: {ImageSource.camera},
+        supportsLostData: true,
+        supportsCameraDelegate: true,
+        supportsMultipleSelection: false,
+        respectsLimit: false,
+      );
+      final updated = constraints.copyWith();
+
+      expect(updated.supportedSources, constraints.supportedSources);
+      expect(updated.supportsLostData, constraints.supportsLostData);
+      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(updated.respectsLimit, constraints.respectsLimit);
+    });
+  });
+
   group('FakePlatformConstraints', () {
     test('Android supports gallery, camera, and lost data', () {
       final platform = FakePlatform.android.constraints;

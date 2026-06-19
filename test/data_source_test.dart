@@ -75,6 +75,36 @@ void main() {
       expect(media.any((f) => f.mimeType?.startsWith('image/') ?? false), isTrue);
       expect(media.any((f) => f.mimeType?.startsWith('video/') ?? false), isTrue);
     });
+
+    test('returns a fake video', () async {
+      final source = RandomFakeDataSource(seed: 42);
+
+      final video = (await source.nextVideo())!;
+
+      expect(video.path, startsWith('fake:///file_'));
+      expect(video.mimeType, startsWith('video/'));
+      expect(video.name, endsWith(video.path.split('.').last));
+    });
+
+    test('returns lost data with explicit image type', () async {
+      final source = RandomFakeDataSource(seed: 123);
+
+      final response = await source.lostData(type: RetrieveType.image);
+
+      expect(response.file, isNotNull);
+      expect(response.type, RetrieveType.image);
+      expect(response.file!.mimeType, startsWith('image/'));
+    });
+
+    test('returns lost data with explicit video type', () async {
+      final source = RandomFakeDataSource(seed: 123);
+
+      final response = await source.lostData(type: RetrieveType.video);
+
+      expect(response.file, isNotNull);
+      expect(response.type, RetrieveType.video);
+      expect(response.file!.mimeType, startsWith('video/'));
+    });
   });
 
   group('CustomFakeDataSource', () {
