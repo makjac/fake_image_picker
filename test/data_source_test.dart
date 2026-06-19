@@ -146,6 +146,72 @@ void main() {
 
       expect(files, hasLength(2));
     });
+
+    test('returns queued video', () async {
+      final source = CustomFakeDataSource()
+        ..queueVideo(_xFile('custom.mp4'));
+
+      final file = (await source.nextVideo())!;
+
+      expect(file.path, 'custom.mp4');
+    });
+
+    test('returns fallback video when queue is empty', () async {
+      final fallback = _xFile('fallback_video.mp4');
+      final source = CustomFakeDataSource(defaultVideo: fallback);
+
+      final file = (await source.nextVideo())!;
+
+      expect(file.path, 'fallback_video.mp4');
+    });
+
+    test('returns queued lists for multi-video', () async {
+      final source = CustomFakeDataSource()
+        ..queueVideos([_xFile('a.mp4'), _xFile('b.mp4')]);
+
+      final files = await source.nextVideos(999);
+
+      expect(files, hasLength(2));
+    });
+
+    test('returns queued media', () async {
+      final source = CustomFakeDataSource()
+        ..queueMedia([_xFile('a.jpg'), _xFile('b.mp4')]);
+
+      final files = await source.nextMedia(999);
+
+      expect(files, hasLength(2));
+    });
+
+    test('returns queued lost data', () async {
+      final response = LostDataResponse(
+        file: _xFile('lost.jpg'),
+        exception: null,
+        type: RetrieveType.image,
+        files: [_xFile('lost.jpg')],
+      );
+      final source = CustomFakeDataSource()..queueLostData(response);
+
+      final result = await source.lostData();
+
+      expect(result.file, isNotNull);
+      expect(result.type, RetrieveType.image);
+    });
+
+    test('returns default lost data when queue is empty', () async {
+      final defaultResponse = LostDataResponse(
+        file: _xFile('default_lost.jpg'),
+        exception: null,
+        type: RetrieveType.video,
+        files: [_xFile('default_lost.jpg')],
+      );
+      final source = CustomFakeDataSource(defaultLostData: defaultResponse);
+
+      final result = await source.lostData();
+
+      expect(result.file, isNotNull);
+      expect(result.type, RetrieveType.video);
+    });
   });
 
   group('EmptyFakeDataSource', () {
