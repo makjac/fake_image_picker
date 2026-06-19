@@ -4,7 +4,9 @@ description: >-
   Register it in your unit tests to get deterministic, random, or custom
   fake images and videos without writing manual mocks.
 version: 1.0.0
-repository: https://github.com/example/fake_image_picker
+homepage: https://github.com/makjac/fake_image_picker
+repository: https://github.com/makjac/fake_image_picker
+issue_tracker: https://github.com/makjac/fake_image_picker/issues
 
 environment:
   sdk: ^3.10.0
