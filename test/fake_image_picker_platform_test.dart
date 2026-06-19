@@ -119,19 +119,21 @@ void main() {
         expect(files, hasLength(4));
       });
 
-      test('throws ArgumentError when allowMultiple is false and limit is set',
-          () async {
-        await expectLater(
-          () => platform.getMedia(
-            options: MediaOptions.createAndValidate(
-              allowMultiple: false,
-              limit: 2,
-              imageOptions: const ImageOptions(),
+      test(
+        'throws ArgumentError when allowMultiple is false and limit is set',
+        () async {
+          await expectLater(
+            () => platform.getMedia(
+              options: MediaOptions.createAndValidate(
+                allowMultiple: false,
+                limit: 2,
+                imageOptions: const ImageOptions(),
+              ),
             ),
-          ),
-          throwsArgumentError,
-        );
-      });
+            throwsArgumentError,
+          );
+        },
+      );
     });
 
     group('getLostData', () {
@@ -194,7 +196,11 @@ void main() {
         await expectLater(
           () => platform.getImageFromSource(source: ImageSource.gallery),
           throwsA(
-            isA<PlatformException>().having((e) => e.code, 'code', 'permission_denied'),
+            isA<PlatformException>().having(
+              (e) => e.code,
+              'code',
+              'permission_denied',
+            ),
           ),
         );
       });
@@ -204,7 +210,9 @@ void main() {
           behavior: const FakeImagePickerBehavior(autoCancel: true),
         );
 
-        final image = await platform.getImageFromSource(source: ImageSource.gallery);
+        final image = await platform.getImageFromSource(
+          source: ImageSource.gallery,
+        );
         final images = await platform.getMultiImageWithOptions();
         final video = await platform.getVideo(source: ImageSource.gallery);
 
@@ -223,7 +231,11 @@ void main() {
         await expectLater(
           () => platform.getImageFromSource(source: ImageSource.gallery),
           throwsA(
-            isA<PlatformException>().having((e) => e.code, 'code', 'already_active'),
+            isA<PlatformException>().having(
+              (e) => e.code,
+              'code',
+              'already_active',
+            ),
           ),
         );
       });

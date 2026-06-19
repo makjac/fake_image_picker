@@ -14,7 +14,8 @@ class FakeImagePicker {
   /// If [platform] is omitted, the global [ImagePickerPlatform.instance] is
   /// used. This makes the class work immediately after [register] has been
   /// called.
-  FakeImagePicker({ImagePickerPlatform? platform}) : _platform = platform ?? ImagePickerPlatform.instance;
+  FakeImagePicker({ImagePickerPlatform? platform})
+    : _platform = platform ?? ImagePickerPlatform.instance;
 
   final ImagePickerPlatform _platform;
 
@@ -153,15 +154,9 @@ class FakeImagePicker {
   }
 
   /// Returns a [List<XFile>] of the fake videos that were picked.
-  Future<List<XFile>> pickMultiVideo({
-    Duration? maxDuration,
-    int? limit,
-  }) {
+  Future<List<XFile>> pickMultiVideo({Duration? maxDuration, int? limit}) {
     return _platform.getMultiVideoWithOptions(
-      options: MultiVideoPickerOptions(
-        maxDuration: maxDuration,
-        limit: limit,
-      ),
+      options: MultiVideoPickerOptions(maxDuration: maxDuration, limit: limit),
     );
   }
 
@@ -170,5 +165,6 @@ class FakeImagePicker {
   Future<LostDataResponse> retrieveLostData() => _platform.getLostData();
 
   /// Returns true if the simulated platform supports [source].
-  bool supportsImageSource(ImageSource source) => _platform.supportsImageSource(source);
+  bool supportsImageSource(ImageSource source) =>
+      _platform.supportsImageSource(source);
 }

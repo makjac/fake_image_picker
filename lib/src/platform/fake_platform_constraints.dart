@@ -32,7 +32,8 @@ class FakePlatformConstraints {
   final bool respectsLimit;
 
   /// Returns `true` if [source] is natively supported.
-  bool supportsImageSource(ImageSource source) => supportedSources.contains(source);
+  bool supportsImageSource(ImageSource source) =>
+      supportedSources.contains(source);
 
   /// Returns a copy with the supplied fields replaced.
   FakePlatformConstraints copyWith({
@@ -45,8 +46,10 @@ class FakePlatformConstraints {
     return FakePlatformConstraints(
       supportedSources: supportedSources ?? this.supportedSources,
       supportsLostData: supportsLostData ?? this.supportsLostData,
-      supportsCameraDelegate: supportsCameraDelegate ?? this.supportsCameraDelegate,
-      supportsMultipleSelection: supportsMultipleSelection ?? this.supportsMultipleSelection,
+      supportsCameraDelegate:
+          supportsCameraDelegate ?? this.supportsCameraDelegate,
+      supportsMultipleSelection:
+          supportsMultipleSelection ?? this.supportsMultipleSelection,
       respectsLimit: respectsLimit ?? this.respectsLimit,
     );
   }

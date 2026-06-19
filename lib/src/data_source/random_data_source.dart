@@ -73,15 +73,19 @@ class RandomFakeDataSource implements FakeImagePickerDataSource {
     return Future.wait(
       List.generate(
         count,
-        (_) async => _random.nextBool() ? (await nextImage())! : (await nextVideo())!,
+        (_) async =>
+            _random.nextBool() ? (await nextImage())! : (await nextVideo())!,
       ),
     );
   }
 
   @override
   Future<LostDataResponse> lostData({RetrieveType? type}) async {
-    final effectiveType = type ?? (_random.nextBool() ? RetrieveType.image : RetrieveType.video);
-    final file = effectiveType == RetrieveType.video ? await nextVideo() : await nextImage();
+    final effectiveType =
+        type ?? (_random.nextBool() ? RetrieveType.image : RetrieveType.video);
+    final file = effectiveType == RetrieveType.video
+        ? await nextVideo()
+        : await nextImage();
     return LostDataResponse(
       file: file,
       exception: null,

@@ -72,8 +72,14 @@ void main() {
       final media = await source.nextMedia(10);
 
       expect(media, hasLength(10));
-      expect(media.any((f) => f.mimeType?.startsWith('image/') ?? false), isTrue);
-      expect(media.any((f) => f.mimeType?.startsWith('video/') ?? false), isTrue);
+      expect(
+        media.any((f) => f.mimeType?.startsWith('image/') ?? false),
+        isTrue,
+      );
+      expect(
+        media.any((f) => f.mimeType?.startsWith('video/') ?? false),
+        isTrue,
+      );
     });
 
     test('returns a fake video', () async {
@@ -148,8 +154,7 @@ void main() {
     });
 
     test('returns queued video', () async {
-      final source = CustomFakeDataSource()
-        ..queueVideo(_xFile('custom.mp4'));
+      final source = CustomFakeDataSource()..queueVideo(_xFile('custom.mp4'));
 
       final file = (await source.nextVideo())!;
 
@@ -229,8 +234,8 @@ void main() {
 }
 
 XFile _xFile(String path) => XFile.fromData(
-      Uint8List.fromList(<int>[0xFF, 0xD8]),
-      path: path,
-      name: path,
-      length: 2,
-    );
+  Uint8List.fromList(<int>[0xFF, 0xD8]),
+  path: path,
+  name: path,
+  length: 2,
+);

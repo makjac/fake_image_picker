@@ -15,10 +15,7 @@ class FakeImagePickerDemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'fake_image_picker demo',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
       home: const DemoHomePage(),
     );
   }
@@ -62,7 +59,8 @@ class _DemoHomePageState extends State<DemoHomePage> {
         setState(() => _result = 'User cancelled multi-image picker.');
       } else {
         setState(() {
-          _result = 'Picked ${images.length} images:\n'
+          _result =
+              'Picked ${images.length} images:\n'
               '${images.map((f) => '${f.name} (${f.mimeType})').join('\n')}';
         });
       }
@@ -76,7 +74,8 @@ class _DemoHomePageState extends State<DemoHomePage> {
       setState(() => _result = 'User cancelled the picker.');
     } else {
       setState(() {
-        _result = 'Path: ${file.path}\n'
+        _result =
+            'Path: ${file.path}\n'
             'Name: ${file.name}\n'
             'Mime type: ${file.mimeType}';
       });
@@ -86,9 +85,7 @@ class _DemoHomePageState extends State<DemoHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('fake_image_picker demo'),
-      ),
+      appBar: AppBar(title: const Text('fake_image_picker demo')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

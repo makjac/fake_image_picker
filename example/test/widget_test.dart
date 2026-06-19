@@ -8,34 +8,32 @@ void main() {
       FakeImagePicker.unregister();
     });
 
-    testWidgets(
-      'displays a fake image path after picking from gallery',
-      (tester) async {
-        FakeImagePicker.register();
+    testWidgets('displays a fake image path after picking from gallery', (
+      tester,
+    ) async {
+      FakeImagePicker.register();
 
-        await tester.pumpWidget(const FakeImagePickerDemoApp());
-        await tester.tap(find.text('Pick image from gallery'));
-        await tester.pumpAndSettle();
+      await tester.pumpWidget(const FakeImagePickerDemoApp());
+      await tester.tap(find.text('Pick image from gallery'));
+      await tester.pumpAndSettle();
 
-        expect(find.textContaining('fake:///image_'), findsOneWidget);
-      },
-    );
+      expect(find.textContaining('fake:///image_'), findsOneWidget);
+    });
 
-    testWidgets(
-      'displays cancellation message when picker is cancelled',
-      (tester) async {
-        FakeImagePicker.register(
-          configuration: FakeImagePickerConfiguration(
-            dataSource: EmptyFakeDataSource(),
-          ),
-        );
+    testWidgets('displays cancellation message when picker is cancelled', (
+      tester,
+    ) async {
+      FakeImagePicker.register(
+        configuration: FakeImagePickerConfiguration(
+          dataSource: EmptyFakeDataSource(),
+        ),
+      );
 
-        await tester.pumpWidget(const FakeImagePickerDemoApp());
-        await tester.tap(find.text('Pick image from gallery'));
-        await tester.pumpAndSettle();
+      await tester.pumpWidget(const FakeImagePickerDemoApp());
+      await tester.tap(find.text('Pick image from gallery'));
+      await tester.pumpAndSettle();
 
-        expect(find.text('User cancelled the picker.'), findsOneWidget);
-      },
-    );
+      expect(find.text('User cancelled the picker.'), findsOneWidget);
+    });
   });
 }

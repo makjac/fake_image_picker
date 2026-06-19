@@ -23,7 +23,7 @@ import 'platform/fake_platform_constraints.dart';
 class FakeImagePickerPlatform extends ImagePickerPlatform {
   /// Creates the fake platform with the given [configuration].
   FakeImagePickerPlatform({FakeImagePickerConfiguration? configuration})
-      : configuration = configuration ?? FakeImagePickerConfiguration();
+    : configuration = configuration ?? FakeImagePickerConfiguration();
 
   /// Current configuration.
   FakeImagePickerConfiguration configuration;
@@ -73,7 +73,8 @@ class FakeImagePickerPlatform extends ImagePickerPlatform {
     if (!_platform.supportsImageSource(source)) {
       throw PlatformException(
         code: 'unsupported_source',
-        message: 'ImageSource.$source is not supported on the simulated platform.',
+        message:
+            'ImageSource.$source is not supported on the simulated platform.',
       );
     }
   }
@@ -84,7 +85,11 @@ class FakeImagePickerPlatform extends ImagePickerPlatform {
     int? imageQuality,
   }) {
     if (imageQuality != null && (imageQuality < 0 || imageQuality > 100)) {
-      throw ArgumentError.value(imageQuality, 'imageQuality', 'must be between 0 and 100');
+      throw ArgumentError.value(
+        imageQuality,
+        'imageQuality',
+        'must be between 0 and 100',
+      );
     }
     if (maxWidth != null && maxWidth < 0) {
       throw ArgumentError.value(maxWidth, 'maxWidth', 'cannot be negative');
@@ -109,7 +114,8 @@ class FakeImagePickerPlatform extends ImagePickerPlatform {
   Future<PickedFile> _toPickedFile(XFile file) async => PickedFile(file.path);
 
   @override
-  bool supportsImageSource(ImageSource source) => _platform.supportsImageSource(source);
+  bool supportsImageSource(ImageSource source) =>
+      _platform.supportsImageSource(source);
 
   @override
   Future<XFile?> getImageFromSource({

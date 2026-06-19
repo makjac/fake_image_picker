@@ -13,9 +13,9 @@ class FakeImagePickerConfiguration {
     FakeImagePickerDataSource? dataSource,
     FakePlatformConstraints? platform,
     FakeImagePickerBehavior? behavior,
-  })  : dataSource = dataSource ?? PredefinedFakeDataSource(),
-        platform = platform ?? FakePlatform.universal.constraints,
-        behavior = behavior ?? const FakeImagePickerBehavior();
+  }) : dataSource = dataSource ?? PredefinedFakeDataSource(),
+       platform = platform ?? FakePlatform.universal.constraints,
+       behavior = behavior ?? const FakeImagePickerBehavior();
 
   /// The source of synthetic files.
   final FakeImagePickerDataSource dataSource;

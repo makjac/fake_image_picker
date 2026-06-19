@@ -51,8 +51,14 @@ void main() {
 
       expect(updated.supportedSources, {ImageSource.camera});
       expect(updated.supportsLostData, constraints.supportsLostData);
-      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
-      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(
+        updated.supportsCameraDelegate,
+        constraints.supportsCameraDelegate,
+      );
+      expect(
+        updated.supportsMultipleSelection,
+        constraints.supportsMultipleSelection,
+      );
       expect(updated.respectsLimit, constraints.respectsLimit);
     });
 
@@ -64,8 +70,14 @@ void main() {
 
       expect(updated.supportsLostData, isTrue);
       expect(updated.supportedSources, constraints.supportedSources);
-      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
-      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(
+        updated.supportsCameraDelegate,
+        constraints.supportsCameraDelegate,
+      );
+      expect(
+        updated.supportsMultipleSelection,
+        constraints.supportsMultipleSelection,
+      );
       expect(updated.respectsLimit, constraints.respectsLimit);
     });
 
@@ -78,7 +90,10 @@ void main() {
       expect(updated.supportsCameraDelegate, isTrue);
       expect(updated.supportedSources, constraints.supportedSources);
       expect(updated.supportsLostData, constraints.supportsLostData);
-      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(
+        updated.supportsMultipleSelection,
+        constraints.supportsMultipleSelection,
+      );
       expect(updated.respectsLimit, constraints.respectsLimit);
     });
 
@@ -91,7 +106,10 @@ void main() {
       expect(updated.supportsMultipleSelection, isFalse);
       expect(updated.supportedSources, constraints.supportedSources);
       expect(updated.supportsLostData, constraints.supportsLostData);
-      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
+      expect(
+        updated.supportsCameraDelegate,
+        constraints.supportsCameraDelegate,
+      );
       expect(updated.respectsLimit, constraints.respectsLimit);
     });
 
@@ -104,8 +122,14 @@ void main() {
       expect(updated.respectsLimit, isFalse);
       expect(updated.supportedSources, constraints.supportedSources);
       expect(updated.supportsLostData, constraints.supportsLostData);
-      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
-      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(
+        updated.supportsCameraDelegate,
+        constraints.supportsCameraDelegate,
+      );
+      expect(
+        updated.supportsMultipleSelection,
+        constraints.supportsMultipleSelection,
+      );
     });
 
     test('copyWith keeps values when no arguments provided', () {
@@ -120,8 +144,14 @@ void main() {
 
       expect(updated.supportedSources, constraints.supportedSources);
       expect(updated.supportsLostData, constraints.supportsLostData);
-      expect(updated.supportsCameraDelegate, constraints.supportsCameraDelegate);
-      expect(updated.supportsMultipleSelection, constraints.supportsMultipleSelection);
+      expect(
+        updated.supportsCameraDelegate,
+        constraints.supportsCameraDelegate,
+      );
+      expect(
+        updated.supportsMultipleSelection,
+        constraints.supportsMultipleSelection,
+      );
       expect(updated.respectsLimit, constraints.respectsLimit);
     });
   });

@@ -14,10 +14,7 @@ class PredefinedFakeDataSource implements FakeImagePickerDataSource {
   ///
   /// [imageBytes] and [videoBytes] can be used to control the exact payload
   /// of every generated file. When omitted, a tiny placeholder payload is used.
-  PredefinedFakeDataSource({
-    this.imageBytes,
-    this.videoBytes,
-  });
+  PredefinedFakeDataSource({this.imageBytes, this.videoBytes});
 
   final Uint8List? imageBytes;
   final Uint8List? videoBytes;
@@ -26,8 +23,10 @@ class PredefinedFakeDataSource implements FakeImagePickerDataSource {
   int _videoCounter = 0;
   int _mediaCounter = 0;
 
-  Uint8List get _defaultImageBytes => Uint8List.fromList(<int>[0xFF, 0xD8, 0xFF]);
-  Uint8List get _defaultVideoBytes => Uint8List.fromList(<int>[0x00, 0x00, 0x00, 0x18]);
+  Uint8List get _defaultImageBytes =>
+      Uint8List.fromList(<int>[0xFF, 0xD8, 0xFF]);
+  Uint8List get _defaultVideoBytes =>
+      Uint8List.fromList(<int>[0x00, 0x00, 0x00, 0x18]);
 
   @override
   Future<XFile?> nextImage() async {

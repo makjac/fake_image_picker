@@ -13,7 +13,10 @@ void main() {
       FakeImagePicker.register();
 
       expect(ImagePickerPlatform.instance, isA<FakeImagePickerPlatform>());
-      expect(ImagePickerPlatform.instance, equals(FakeImagePicker.registeredPlatform));
+      expect(
+        ImagePickerPlatform.instance,
+        equals(FakeImagePicker.registeredPlatform),
+      );
 
       FakeImagePicker.unregister();
 

@@ -25,12 +25,12 @@ class CustomFakeDataSource implements FakeImagePickerDataSource {
     List<XFile>? defaultVideos,
     List<XFile>? defaultMedia,
     LostDataResponse? defaultLostData,
-  })  : _defaultImage = defaultImage,
-        _defaultVideo = defaultVideo,
-        _defaultImages = defaultImages ?? const <XFile>[],
-        _defaultVideos = defaultVideos ?? const <XFile>[],
-        _defaultMedia = defaultMedia ?? const <XFile>[],
-        _defaultLostData = defaultLostData ?? LostDataResponse.empty();
+  }) : _defaultImage = defaultImage,
+       _defaultVideo = defaultVideo,
+       _defaultImages = defaultImages ?? const <XFile>[],
+       _defaultVideos = defaultVideos ?? const <XFile>[],
+       _defaultMedia = defaultMedia ?? const <XFile>[],
+       _defaultLostData = defaultLostData ?? LostDataResponse.empty();
 
   final Queue<XFile?> _images = Queue<XFile?>();
   final Queue<XFile?> _videos = Queue<XFile?>();
@@ -93,13 +93,16 @@ class CustomFakeDataSource implements FakeImagePickerDataSource {
   Future<XFile?> nextVideo() async => _next(_videos, _defaultVideo);
 
   @override
-  Future<List<XFile>> nextImages(int count) async => _next(_imagesList, _defaultImages);
+  Future<List<XFile>> nextImages(int count) async =>
+      _next(_imagesList, _defaultImages);
 
   @override
-  Future<List<XFile>> nextVideos(int count) async => _next(_videosList, _defaultVideos);
+  Future<List<XFile>> nextVideos(int count) async =>
+      _next(_videosList, _defaultVideos);
 
   @override
-  Future<List<XFile>> nextMedia(int count) async => _next(_mediaList, _defaultMedia);
+  Future<List<XFile>> nextMedia(int count) async =>
+      _next(_mediaList, _defaultMedia);
 
   @override
   Future<LostDataResponse> lostData({RetrieveType? type}) async =>
