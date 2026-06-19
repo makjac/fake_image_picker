@@ -240,23 +240,3 @@ Bundles the data source, platform constraints, and behavior.
 ### `FakePlatform` / `FakePlatformConstraints`
 
 Simulate Android, iOS, macOS, Windows, Linux, Web, or a universal platform.
-
----
-
-## Running tests
-
-```bash
-flutter test
-```
-
-The package ships with a comprehensive test suite. A runnable demo app with widget tests lives in `example/`.
-
----
-
-## Additional information
-
-- Repository: https://github.com/example/fake_image_picker
-- Issue tracker: https://github.com/example/fake_image_picker/issues
-- `image_picker` plugin: https://pub.dev/packages/image_picker
-
-Contributions are welcome. Please open an issue or pull request if you find a missing API or behavior.
