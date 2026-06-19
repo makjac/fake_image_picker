@@ -6,4 +6,15 @@
 # https://dart.dev/tools/pub/private-files#pubspec-lock.
 pubspec.lock
 
+# Build outputs
+build/
+example/build/
+
+# Flutter plugin metadata generated during local development
+.flutter-plugins
+.flutter-plugins-dependencies
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
+
+# Local temp directory with the upstream image_picker source
 /temp

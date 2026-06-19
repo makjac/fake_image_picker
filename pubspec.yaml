@@ -1,15 +1,28 @@
 name: fake_image_picker
-description: A starting point for Dart libraries or applications.
+description: >-
+  A ready-to-use fake implementation of the Flutter image_picker plugin.
+  Register it in your unit tests to get deterministic, random, or custom
+  fake images and videos without writing manual mocks.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/example/fake_image_picker
 
 environment:
-  sdk: ^3.12.0-327.4.beta
+  sdk: ^3.10.0
+  flutter: ">=3.10.0"
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.9.0
+  cross_file: ^0.3.1+1
+  flutter:
+    sdk: flutter
+  image_picker_platform_interface: ^2.11.0
+  meta: ^1.12.0
 
 dev_dependencies:
-  lints: ^6.0.0
-  test: ^1.25.6
+  lints: ^5.0.0
+  test: ^1.25.0
+
+topics:
+  - image-picker
+  - mock
+  - testing
+  - fake
