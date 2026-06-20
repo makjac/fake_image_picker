@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Updated package description to meet pub.dev guidelines.
+
 ## 1.0.0
 
 - Initial release.
