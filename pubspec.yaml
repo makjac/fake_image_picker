@@ -1,9 +1,6 @@
 name: fake_image_picker
-description: >-
-  A ready-to-use fake implementation of the Flutter image_picker plugin.
-  Register it in your unit tests to get deterministic, random, or custom
-  fake images and videos without writing manual mocks.
-version: 1.0.0
+description: A ready-to-use fake for the Flutter image_picker plugin. Register it in tests for deterministic fake images and videos.
+version: 1.0.1
 homepage: https://github.com/makjac/fake_image_picker
 repository: https://github.com/makjac/fake_image_picker
 issue_tracker: https://github.com/makjac/fake_image_picker/issues
