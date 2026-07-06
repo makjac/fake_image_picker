@@ -8,7 +8,7 @@
 A ready-to-use fake for the Flutter [`image_picker`](https://pub.dev/packages/image_picker) plugin.
 Add it to your `dev_dependencies`, call one line of setup, and control exactly what your unit tests receive from the image picker — no manual mocks, no platform channels, no filesystem side effects.
 
-**Target `image_picker` version:** `1.2.2`  
+**Target `image_picker` version:** `1.2.3`  
 **Supported platforms in tests:** Android, iOS, macOS, Windows, Linux, Web.
 
 ---

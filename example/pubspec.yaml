@@ -4,12 +4,12 @@ publish_to: 'none'
 
 environment:
   sdk: ^3.10.0
-  flutter: ">=3.10.0"
+  flutter: ">=3.38.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  image_picker: ^1.2.2
+  image_picker: ^1.2.3
 
 dev_dependencies:
   fake_image_picker:

@@ -87,6 +87,55 @@ void main() {
       expect(files, hasLength(3));
     });
 
+    test('pickMultiImage(limit: 1) delegates to single-image picker', () async {
+      final files = await picker.pickMultiImage(limit: 1);
+
+      expect(files, hasLength(1));
+    });
+
+    test(
+      'pickMultiImage(limit: 1) returns an empty list when cancelled',
+      () async {
+        platform.configuration = platform.configuration.copyWith(
+          dataSource: EmptyFakeDataSource(),
+        );
+
+        final files = await picker.pickMultiImage(limit: 1);
+
+        expect(files, isEmpty);
+      },
+    );
+
+    test(
+      'pickMultipleMedia(limit: 1) delegates to single-media picker',
+      () async {
+        final files = await picker.pickMultipleMedia(limit: 1);
+
+        expect(files, hasLength(1));
+      },
+    );
+
+    test(
+      'pickMultipleMedia(limit: 1) returns an empty list when cancelled',
+      () async {
+        platform.configuration = platform.configuration.copyWith(
+          dataSource: EmptyFakeDataSource(),
+        );
+
+        final files = await picker.pickMultipleMedia(limit: 1);
+
+        expect(files, isEmpty);
+      },
+    );
+
+    test('pickMultiImage throws ArgumentError when limit is below 1', () {
+      expect(() => picker.pickMultiImage(limit: 0), throwsArgumentError);
+    });
+
+    test('pickMultipleMedia throws ArgumentError when limit is below 1', () {
+      expect(() => picker.pickMultipleMedia(limit: 0), throwsArgumentError);
+    });
+
     test('pickVideo delegates to platform', () async {
       final file = await picker.pickVideo(source: ImageSource.gallery);
 

@@ -1,13 +1,13 @@
 name: fake_image_picker
 description: A ready-to-use fake for the Flutter image_picker plugin. Register it in tests for deterministic fake images and videos.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/makjac/fake_image_picker
 repository: https://github.com/makjac/fake_image_picker
 issue_tracker: https://github.com/makjac/fake_image_picker/issues
 
 environment:
   sdk: ^3.10.0
-  flutter: ">=3.10.0"
+  flutter: ">=3.38.0"
 
 dependencies:
   cross_file: ^0.3.1+1
